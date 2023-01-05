@@ -1,8 +1,48 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+	ViewData["Title"] = "Home Page";
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+	<h1 class="display-4">Welcome</h1>
+	<p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+	<div class="container mt-3">
+		<div class="row" id="cardRow">
+		</div>
+	</div>
 </div>
+
+
+@section Scripts {
+
+	<script src="~/js/travel.js"></script>
+	<script>
+
+		console.log(DATAS);
+		$.each(DATAS, function (a, b) {
+			$("#cardRow").append(`
+					<div class="col-sm-4">
+				  <div class="card">
+					<div class="card-body">
+							  <h5 class="card-title">InfoId ${b.InfoId}</h5>
+							  <p class="card-text">Name ${b.Name}</p>
+							  <p class="card-text">Toldescribe ${b.Toldescribe}</p>
+							  <p class="card-text">Add ${b.Add}</p>
+							  <p class="card-text">Zipcode ${b.Zipcode}</p>
+					  <p class="card-text">Opentime ${b.Opentime}</p>
+							  <p class="card-text">Px ${b.Px}</p>
+							  <p class="card-text">Py ${b.Py}</p>
+							  <p class="card-text">Parkinginfo ${b.Parkinginfo}</p>
+					  <p class="card-text">Ticketinfo ${b.Ticketinfo}</p>
+						<p class="card-text">Tel ${b.Tel}</p>
+						<p class="card-text">Fax ${b.Fax}</p>
+								<p class="card-text">Changetime ${b.Changetime}</p>
+					  <a href="${b.Website}" class="btn btn-primary">Website</a>
+					  <a href="${b.TYWebsite}" class="btn btn-primary">Website</a>
+					</div>
+				  </div>
+
+					`)
+		})
+
+	</script>
+}
