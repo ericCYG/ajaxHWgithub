@@ -12,7 +12,7 @@ namespace _01ajaxTest.Controllers
 
 		private readonly IWebHostEnvironment _host;
 
-		public AjaxApiTestController( IWebHostEnvironment host)
+		public AjaxApiTestController(DemoContext context, IWebHostEnvironment host)
 		{
 			_context = context;
 
@@ -28,40 +28,40 @@ namespace _01ajaxTest.Controllers
 				name = "nothing";
 			}
 
-			return Content($"<h1>Hello ,{name}</h1>","text/html",Encoding.UTF8);
+			return Content($"<h1>Hello ,{name}</h1>", "text/html", Encoding.UTF8);
 		}
 
 
-	//	public IActionResult Register(Member member, IFormFile photo)
-	//	{
-	//		//return Content($"Hello, {member.Name}, You are {member.Age} years old, {member.Email}。", "text/plain", Encoding.UTF8);
+		//	public IActionResult Register(Member member, IFormFile photo)
+		//	{
+		//		//return Content($"Hello, {member.Name}, You are {member.Age} years old, {member.Email}。", "text/plain", Encoding.UTF8);
 
-	//		string filePath = Path.Combine(_host.WebRootPath, "uploads", photo.FileName);
-	//		using (var fileStream = new FileStream(filePath, FileMode.Create))
-	//		{
-	//			photo.CopyTo(fileStream);
-	//			//return Content($"{filePath}");
-	//		}
-
-		
-	//		member.FileName = photo.FileName;
-
-	//		byte[] imgByte = new byte[1];
-	//		using (var memoryStream = new MemoryStream()) { 
-	//				photo.CopyTo(memoryStream);
-	//				imgByte = memoryStream.ToArray();
-	//		}
-	//		if(imgByte.Length >= 2)
-	//		{
-
-	//			member.FileData = imgByte;
-	//		}
+		//		string filePath = Path.Combine(_host.WebRootPath, "uploads", photo.FileName);
+		//		using (var fileStream = new FileStream(filePath, FileMode.Create))
+		//		{
+		//			photo.CopyTo(fileStream);
+		//			//return Content($"{filePath}");
+		//		}
 
 
-	//		_context.Members.Add(member);
-	//		_context.SaveChanges();
-	//return Content($"{filePath}");
-	//	}
+		//		member.FileName = photo.FileName;
+
+		//		byte[] imgByte = new byte[1];
+		//		using (var memoryStream = new MemoryStream()) { 
+		//				photo.CopyTo(memoryStream);
+		//				imgByte = memoryStream.ToArray();
+		//		}
+		//		if(imgByte.Length >= 2)
+		//		{
+
+		//			member.FileData = imgByte;
+		//		}
+
+
+		//		_context.Members.Add(member);
+		//		_context.SaveChanges();
+		//return Content($"{filePath}");
+		//	}
 
 		//讀取城市名稱
 		public IActionResult City()
@@ -87,13 +87,14 @@ namespace _01ajaxTest.Controllers
 
 			return Json(roads);
 		}
-		public IActionResult city2() {
+		public IActionResult city2()
+		{
 
 			return View();
 		}
 
 
-		
+
 
 	}
 }
