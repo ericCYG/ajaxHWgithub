@@ -33,28 +33,35 @@
         });
 
         selCity.addEventListener('change', () => {
-            const city = selCity.options[selCity.selectedIndex].value;
+
+            cityChang();
+            siteChang();
+        });
+
+
+        selSite.addEventListener('change',()=>{
+
+            siteChang();
+
+        })
+
+        function cityChang(){
+           const city = selCity.options[selCity.selectedIndex].value;
 
             asyncFun(`Site?city=${city}`).then((getData) => {
                 const cityOpts = getData.map(value => `<option value=${value}>${value}</option>`);
                 selSite.innerHTML = cityOpts.join("");
             });
+        }
 
-        });
-
-
-        selSite.addEventListener('change',()=>{
-            const site = selSite.options[selSite.selectedIndex].value;
+        function siteChang(){
+             const site = selSite.options[selSite.selectedIndex].value;
 
             asyncFun(`Road?siteRoad=${site}`).then((getData) => {
                 const cityOpts = getData.map(value => `<option value=${value}>${value}</option>`);
                 selRoad.innerHTML = cityOpts.join("");
             });
-
-
-        })
-
-
+        }
 
     </script>
 }
