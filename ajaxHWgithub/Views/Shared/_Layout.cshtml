@@ -1,49 +1,130 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - ajaxHWgithub</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/ajaxHWgithub.styles.css" asp-append-version="true" />
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>@ViewData["Title"] - ajaxHWgithub</title>
+	<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+	<link rel="stylesheet" href="~/ajaxHWgithub.styles.css" asp-append-version="true" />
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">ajaxHWgithub</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
+	<header>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2023 - ajaxHWgithub - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
-    </footer>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-    @await RenderSectionAsync("Scripts", required: false)
+		<!--? Header Start -->
+		<div class="header-area">
+			<div class="main-header header-sticky">
+				<div class="container-fluid">
+					<div class="row align-items-center">
+						<!-- Logo -->
+						<div class="col-xl-2 col-lg-2 col-md-1">
+							<div class="logo">
+								<a href="https://technext.github.io/medicalcenter/index.html"><img src="./Medical HTML-5 Template_files/logo.png" alt=""></a>
+							</div>
+						</div>
+						<div class="col-xl-10 col-lg-10 col-md-10">
+							<div class="menu-main d-flex align-items-center justify-content-end">
+								<!-- Main-menu -->
+								<div class="main-menu f-right ">
+									@*  <nav>
+									<ul id="navigation">
+									<li><a href="https://technext.github.io/medicalcenter/index.html">Home</a></li>
+									<li><a href="https://technext.github.io/medicalcenter/about.html">About</a></li>
+									<li><a href="https://technext.github.io/medicalcenter/doctor.html">Doctors</a></li>
+									<li><a href="https://technext.github.io/medicalcenter/department.html">Department</a></li>
+									<li>
+									<a href="https://technext.github.io/medicalcenter/blog.html">Blog</a>
+									<ul class="submenu">
+									<li><a href="https://technext.github.io/medicalcenter/blog.html">Blog</a></li>
+									<li><a href="https://technext.github.io/medicalcenter/blog_details.html">Blog Details</a></li>
+									<li><a href="https://technext.github.io/medicalcenter/elements.html">Element</a></li>
+									</ul>
+									</li>
+									<li><a href="https://technext.github.io/medicalcenter/contact.html">Contact</a></li>
+									</ul>
+									</nav>*@
+									<nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+										<div class="container-fluid">
+											<a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">ajaxHWgithub</a>
+											<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+													aria-expanded="false" aria-label="Toggle navigation">
+												<span class="navbar-toggler-icon"></span>
+											</button>
+											<div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+												<ul class="navbar-nav flex-grow-1">
+													<li class="nav-item">
+														<a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+													</li>
+													<li class="nav-item">
+														<a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+													</li>
+												</ul>
+											</div>
+										</div>
+									</nav>
+								</div>
+								<div class="header-right-btn f-right d-none d-lg-block ml-30">
+									<a href="https://technext.github.io/medicalcenter/about.html#" class="btn header-btn">01654.066.456</a>
+								</div>
+							</div>
+						</div>
+						<!-- Mobile Menu -->
+						<div class="col-12">
+							<div class="mobile_menu d-block d-lg-none">
+								<div class="slicknav_menu">
+									<a href="#" aria-haspopup="true" role="button" tabindex="0" class="slicknav_btn slicknav_collapsed">
+										<span class="slicknav_menutxt">MENU</span>
+										<span class="slicknav_icon">
+											<span class="slicknav_icon-bar"></span>
+											<span class="slicknav_icon-bar"></span>
+											<span class="slicknav_icon-bar"></span>
+										</span>
+									</a>
+									<ul class="slicknav_nav slicknav_hidden" style="display: none;" aria-hidden="true" role="menu">
+										<li><a href="#" role="menuitem" tabindex="-1">Home</a></li>
+										<li><a href="#" role="menuitem" tabindex="-1">About</a></li>
+										<li><a href="#" role="menuitem" tabindex="-1">Doctors</a></li>
+										<li><a href="#" role="menuitem" tabindex="-1">Department</a></li>
+										<li class="slicknav_collapsed slicknav_parent">
+											<a href="#" role="menuitem" aria-haspopup="true" tabindex="-1" class="slicknav_item slicknav_row">
+												<a href="#" tabindex="-1">Blog</a>
+												<span class="slicknav_arrow">+</span>
+											</a>
+											<ul class="submenu slicknav_hidden" role="menu" style="display: none;" aria-hidden="true">
+												<li><a href="#" role="menuitem" tabindex="-1">Blog</a></li>
+												<li><a href="#" role="menuitem" tabindex="-1">Blog Details</a></li>
+												<li><a href="#" role="menuitem" tabindex="-1">Element</a></li>
+											</ul>
+										</li>
+										<li><a href="#" role="menuitem" tabindex="-1">Contact</a></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Header End -->
+
+
+
+
+	</header>
+	<div class="container">
+		<main role="main" class="pb-3">
+			@RenderBody()
+		</main>
+	</div>
+
+	<footer class="border-top footer text-muted">
+		<div class="container">
+			&copy; 2023 - ajaxHWgithub - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+		</div>
+	</footer>
+	<script src="~/lib/jquery/dist/jquery.min.js"></script>
+	<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+	<script src="~/js/site.js" asp-append-version="true"></script>
+	@await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

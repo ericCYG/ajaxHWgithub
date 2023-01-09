@@ -1,0 +1,21 @@
+﻿
+@{
+    ViewData["Title"] = "fetchTest";
+}
+
+<h1>fetchTest</h1>
+
+@section Scripts{
+    <script>
+
+   
+        async function asyncFun() {
+            const response = await fetch("@Url.Content("~/")AjaxApiTest/city");
+            const data = await response.text();
+            console.log(data);
+        }
+
+        asyncFun();
+
+    </script>
+}

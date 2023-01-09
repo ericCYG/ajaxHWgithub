@@ -16,11 +16,11 @@
 
 	<script src="~/js/travel.js"></script>
 	<script>
-
+		const GetCardRow = $("#cardRow");
 		console.log(DATAS);
 		$.each(DATAS, function (a, b) {
-			$("#cardRow").append(`
-					<div class="col-sm-4">
+			GetCardRow.append(`
+			<div class="col-sm-4">
 				  <div class="card">
 					<div class="card-body">
 							  <h5 class="card-title">InfoId ${b.InfoId}</h5>
@@ -38,8 +38,8 @@
 								<p class="card-text">Changetime ${b.Changetime}</p>
 					  <a href="${b.Website}" class="btn btn-primary">Website</a>
 					  <a href="${b.TYWebsite}" class="btn btn-primary">Website</a>
-					</div>
-				  </div>
+				</div>
+			</div>
 
 					`)
 		})
