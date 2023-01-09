@@ -1,0 +1,60 @@
+﻿@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+<select id="select1"></select>
+<select id="select2"></select>
+<select id="select3"></select>
+
+
+@section Scripts{
+    <script>
+
+        const selCity = document.querySelector('#select1');
+        const selSite = document.querySelector('#select2');
+        const selRoad = document.querySelector('#select3');
+
+
+        async function asyncFun(area) {
+
+            const response = await fetch(`@Url.Content("~/AjaxApiTest/${area}")`);
+            const data = await response.text();
+            const jsonData = JSON.parse(data);
+            return jsonData;
+
+        }
+
+
+
+        asyncFun("city").then((getData) => {
+            const cityOpts = getData.map(value => `<option value=${value}>${value}</option>`);
+            selCity.innerHTML = cityOpts.join("");
+        });
+
+        selCity.addEventListener('change', () => {
+            const city = selCity.options[selCity.selectedIndex].value;
+
+            asyncFun(`Site?city=${city}`).then((getData) => {
+                const cityOpts = getData.map(value => `<option value=${value}>${value}</option>`);
+                selSite.innerHTML = cityOpts.join("");
+            });
+
+        });
+
+
+        selSite.addEventListener('change',()=>{
+            const site = selSite.options[selSite.selectedIndex].value;
+
+            asyncFun(`Road?siteRoad=${site}`).then((getData) => {
+                const cityOpts = getData.map(value => `<option value=${value}>${value}</option>`);
+                selRoad.innerHTML = cityOpts.join("");
+            });
+
+
+        })
+
+
+
+    </script>
+}
