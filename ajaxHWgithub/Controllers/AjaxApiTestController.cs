@@ -1,5 +1,6 @@
 ﻿using ajaxHWgithub.Models;
 using Microsoft.AspNetCore.Mvc;
+using NuGet.Protocol;
 using System.Text;
 using System.Text.Unicode;
 
@@ -94,7 +95,10 @@ namespace _01ajaxTest.Controllers
 		}
 
 
+		public IActionResult findAccount(string targetAccountString) {
+			return Content(_context.Members.FirstOrDefault(_ => _.Name == targetAccountString) != null ? "true" : "false" );
 
+        }
 
 	}
 }

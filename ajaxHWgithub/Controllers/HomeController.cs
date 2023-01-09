@@ -1,5 +1,6 @@
 ﻿using ajaxHWgithub.Models;
 using Microsoft.AspNetCore.Mvc;
+using NuGet.Protocol;
 using System.Diagnostics;
 
 namespace ajaxHWgithub.Controllers
@@ -32,6 +33,12 @@ namespace ajaxHWgithub.Controllers
 		public IActionResult fetchTest() {
 			return View();
 		}
+
+		public IActionResult findAccount() {
+			return View();
+		}
+
+		
 
 	}
 }

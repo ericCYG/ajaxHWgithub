@@ -1,0 +1,46 @@
+﻿@{
+    ViewData["Title"] = "findAccount";
+}
+
+<h1>findAccount</h1>
+<form>
+
+    <input type="text" id="accountID" name="account" />
+
+    <input type="password" id="password" name="password" />
+    <input type="submit" />
+    <span id="accountUseOrNot"></span>
+</form>
+
+
+
+@section Scripts{
+
+    <script>
+
+        const getAccountID = document.querySelector("#accountID");
+        const getAccountUseOrNot = document.querySelector("#accountUseOrNot");
+
+        getAccountID.addEventListener('change', () => {
+
+
+                const xhr = new XMLHttpRequest();
+                xhr.addEventListener('load', () => {
+
+                    if (xhr.responseText == "true") {
+                        getAccountUseOrNot.textContent = "帳號已使用請更換";
+                    }
+                    else {
+                        getAccountUseOrNot.textContent = "帳號可使用";
+                    }
+
+
+                });
+                xhr.open("GET", `@Url.Content("~/")AjaxApiTest/findAccount?targetAccountString=${getAccountID.value}`);
+                xhr.send();
+           
+        })
+
+    </script>
+
+}
